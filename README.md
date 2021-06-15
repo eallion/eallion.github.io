@@ -1,5 +1,5 @@
 # A Hugo blog about *Charles 'eallion' Chin*
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/eallion/eallion.com/build?style=flat)](https://github.com/eallion/eallion.com/actions/workflows/main.yml) [![Sync to Gitee and Deploy](https://github.com/eallion/eallion.github.io/actions/workflows/gitee.yml/badge.svg?branch=main)](https://github.com/eallion/eallion.github.io/actions/workflows/gitee.yml)
+[![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml) [![Sync to Gitee and Deploy](https://github.com/eallion/eallion.github.io/actions/workflows/gitee.yml/badge.svg?branch=main)](https://github.com/eallion/eallion.github.io/actions/workflows/gitee.yml)
 
 > Chance favors the prepared mind.
 
