@@ -16,7 +16,9 @@ jobs:
           github-repo: "git@github.com:eallion/eallion.github.io.git"
           # 注意替换为你的 CODING 目标仓库地址
           coding-repo: "git@e.coding.net:eallion/eallion/pages.git"
-
+      - name: Delete exist Repo
+        run: |
+          rm -rf eallion.github.io
       - name: Sync to Gitee
         uses: wearerequired/git-mirror-action@master
         env:
