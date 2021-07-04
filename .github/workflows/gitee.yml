@@ -6,6 +6,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Sync Repo to CODING
+        uses: serverlesslife-cn/sync-repo-to-coding@master
+        env:
+          # 在 GitHub Settings->Secrets 配置 CODING_PRIVATE_KEY
+          SSH_PRIVATE_KEY: ${{ secrets.CODING_PRIVATE_KEY }}
+        with:
+          # 注意替换为你的 GitHub 源仓库地址
+          github-repo: "git@github.com:eallion/eallion.github.io.git"
+          # 注意替换为你的 CODING 目标仓库地址
+          coding-repo: "git@e.coding.net:eallion/eallion/pages.git"
+
       - name: Sync to Gitee
         uses: wearerequired/git-mirror-action@master
         env:
