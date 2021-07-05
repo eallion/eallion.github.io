@@ -11,6 +11,10 @@ jobs:
     name: "Perform REST API"
     runs-on: ubuntu-latest
     steps:
+      - name: Sleeping 1m
+        run: |
+          sleep 1m
+          ls
       - name: "Call API"
         uses: indiesdev/curl@v1
         with:
