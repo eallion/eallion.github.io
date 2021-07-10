@@ -18,7 +18,7 @@ jobs:
       - name: "Call API"
         uses: distributhor/workflow-webhook@v1
         env:
-          webhook_type: 'json-extended'
+          webhook_type: 'json'
           webhook_url: ${{ secrets.WEBHOOK_API }}
           webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
           webhook_auth: ${{ secrets.curl_auth_username }}:${{ secrets.curl_auth_password }}
