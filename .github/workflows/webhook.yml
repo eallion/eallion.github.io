@@ -20,6 +20,7 @@ jobs:
         env:
           webhook_type: 'json-extended'
           webhook_url: ${{ secrets.WEBHOOK_API }}
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
           webhook_auth: ${{ secrets.curl_auth_username }}:${{ secrets.curl_auth_password }}
           silent: false
           data: '{ "ref": "gh-pages", "envs": [{ "name": "COS_SECRET_ID", "value": "${{ secrets.COS_SECRET_ID }}", "sensitive": "1" }, { "name": "COS_SECRET_KEY", "value": "${{ secrets.COS_SECRET_KEY }}", "sensitive": "1" }, { "name": "COS_BUCKET_NAME", "value": "${{ secrets.COS_BUCKET_NAME }}", "sensitive": "1" }, { "name": "COS_BUCKET_REGION", "value": "ap-shanghai", "sensitive": "0" }, { "name": "COS_UPLOAD_FROM_PATH", "value": "./", "sensitive": "0" }] }'
