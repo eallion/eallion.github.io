@@ -1,0 +1,56 @@
+#header h1 {
+    margin-bottom:2rem !important;
+}
+#header nav a:before {
+    border-radius: 20px !important;
+    border: solid 5px #fff !important;
+    line-height: 2.3em !important;
+    background: #ffffff25 !important;
+}
+
+.emoji{
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji", sans-serif, serif !important;
+}
+
+/* Talk */
+.talk {
+    display: flex;
+    flex: 1 auto;
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+    padding: 5px 10px;
+    margin: 5rem auto;
+    margin-bottom: 10rem;
+    position: relative;
+    background-color: #ffffff25;
+    border-radius: 8px;
+    max-height: 4rem;
+    overflow: hidden;
+}
+.talk ul {
+    margin: 0;
+    max-height: 2rem;
+    overflow: hidden;
+}
+.talk li {
+    list-style: none;
+    margin-bottom: 10px;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.talk i {
+    font-size: 1.5em !important;
+    margin-right: 5px !important;
+}
+
+#header h1 .small {
+    font-size: 0.95em !important;
+    font-style: italic !important;
+}
+.bio {
+    white-space:nowrap;
+}
