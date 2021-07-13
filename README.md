@@ -1,20 +1,18 @@
-# A Hugo blog about *Charles 'eallion' Chin*
-[![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml) [![Sync to Coding and Deploy](https://github.com/eallion/eallion.github.io/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.github.io/actions/workflows/main.yml) [![Sync to Gitee and Deploy](https://github.com/eallion/eallion.github.io/actions/workflows/gitee.yml/badge.svg?branch=main)](https://github.com/eallion/eallion.github.io/actions/workflows/gitee.yml)
+eallion.github.io
+======================
 
-> Chance favors the prepared mind.
+Github repo for Charles Chin's Website
 
-### Any questions?
+## How to get your own?
+1. Fork the repo
+2. Rename the repo as `your-user-name.github.io`
+3. Check at [http://your-user-name.github.io](http://your-user-name.github.io)
+4. Start making changes!
 
-[![GitHub issues](https://img.shields.io/github/issues/eallion/eallion.com?logo=GitHub&style=flat)](https://github.com/eallion/eallion.com/issues/new) [![](https://img.shields.io/badge/eallions@gmail.com-4ec100?labelColor=555&logo=gmail&label=Gmail&link=mailto:eallions@gmail.com&logoColor=fff&style=flat)](mailto:eallions@gmail.com) [![](https://img.shields.io/badge/t.me-@eallion-4ec100?labelColor=555&logo=telegram&logoColor=fff&style=flat)](https://t.me/eallion)
+## How to run locally
+Simply go to your cloned directory and start a static server:
 
-### Live demo:
-- https://eallion.com  
-- https://eallion.gitee.io
-- https://eallion.github.io
-- https://eallion.netlify.app
-- https://eallion.pages.dev
-- https://eallion.vercel.app
-- https://eallion.web.app
+1. Python 2.7x `python -m SimpleHTTPServer`
+2. Python 3.x `python -m http.server`
 
-# 写新文章
-> [Create new file](https://github.com/eallion/eallion.com/tree/master/content/posts/)
+> Don't forget to star the repo. :stuck_out_tongue_winking_eye:
