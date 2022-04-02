@@ -1,4 +1,4 @@
-# A Hugo blog about *Charles 'eallion' Chin*
+# A page about *Charles 'eallion' Chin*
 
 > Chance favors the prepared mind.
 
@@ -8,6 +8,3 @@
 
 ### Live demo:
 - https://charleschin.com  
-- https://eallion.gitee.io
-- https://eallion.netlify.app
-- https://eallion.vercel.app
