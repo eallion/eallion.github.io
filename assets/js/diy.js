@@ -1,7 +1,7 @@
 // 首页调用嘀咕 JSON 版
 $(document).ready(function () {
     if ($("#talks").length > 0) {
-        jsonUrl = "https://eallion.com/memos.json"
+        jsonUrl = "https://api.eallion.com/memos/memos.json"
         $.getJSON(jsonUrl + "?t=" + Date.parse(new Date()), function (res) {
             var talksHtml = ''
             $.each(res.data, function (i, item) {
