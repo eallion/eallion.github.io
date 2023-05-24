@@ -162,7 +162,10 @@
                 for (var i = 0; i < data.length; i++) {
                     var tickerTime = new Date(data[i].createdTs * 1000).toLocaleString();
                     var tickerContent = data[i].content;
-                    var newtickerContent = tickerContent
+                    const escapeHtml = (unsafe) => {
+                        return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+                    }
+                    var newtickerContent = escapeHtml(tickerContent)
                         .replace(/```([\s\S]*?)```[\s]*/g, " <code>$1</code> ") //全局匹配代码块
                         .replace(/`([\s\S ]*?)`[\s]*/g, " <code>$1</code> ") //全局匹配内联代码块
                         .replace(/\!\[[\s\S]*?\]\(([\s\S]*?)\)/g, "$1") //全局匹配图片
