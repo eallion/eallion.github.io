@@ -110,7 +110,7 @@
         <!--Img Col-->
         <div class="logo">
             <!-- Big profile image for side bar (desktop) -->
-            <img src="assets/avatar.png" />
+            <img src="assets/avatar.png"  alt="avatar"/>
             <!-- Image from: https://unsplash.com/photos/3cuXSmCgheo -->
         </div>
 
@@ -151,44 +151,97 @@
     </script>
 
     <script>
+        // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
+
+        (() => {
+            window.Lately = new function () {
+                this.lang = {
+                    second: "秒",
+                    minute: "分钟",
+                    hour: "小时",
+                    day: "天",
+                    month: "个月",
+                    year: "年",
+                    ago: "前",
+                    error: "NaN"
+                };
+                const format = (date) => {
+                    date = new Date(_val(date));
+                    const floor = (num, _lang) => Math.floor(num) + _lang,
+                        obj = new function () {
+                            this.second = (Date.now() - date.getTime()) / 1000;
+                            this.minute = this.second / 60;
+                            this.hour = this.minute / 60;
+                            this.day = this.hour / 24;
+                            this.month = this.day / 30;
+                            this.year = this.month / 12
+                        },
+                        key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
+                    return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
+                },
+                    _val = (date) => {
+                        date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
+                        return isNaN(date.getTime()) ? false : date.getTime();
+                    };
+                return {
+                    init: ({ target = "time", lang } = {}) => {
+                        if (lang) this.lang = lang;
+                        for (let el of document.querySelectorAll(target)) {
+                            const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
+                            if (!date) return;
+                            el.title = new Date(date).toLocaleString();
+                            el.innerHTML = format(date);
+                        }
+                    },
+                    format
+                }
+            }
+        })();
         let jsonUrl = "https://api.eallion.com/memos/memos.json" + "?t=" + Date.parse(new Date());
 
-        fetch(jsonUrl)
-            .then((res) => res.json())
-            .then((resdata) => {
-                var result = "",
-                    resultAll = "",
-                    data = resdata.data;
-                for (var i = 0; i < data.length; i++) {
-                    var tickerTime = new Date(data[i].createdTs * 1000).toLocaleString();
-                    var tickerContent = data[i].content;
-                    const escapeHtml = (unsafe) => {
-                        return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+        if (document.querySelector('#ticker')) {
+            fetch(jsonUrl)
+                .then(res => res.json())
+                .then(resdata => {
+                    var result = '';
+                    var data = resdata;
+                    for (var i = 0; i < data.length; i++) {
+                        var tickerTime = new Date(data[i].createdTs * 1000).toLocaleString();
+                        var tickerContent = data[i].content;
+                        const escapeHtml = (unsafe) => {
+                            return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+                        };
+                        var newtickerContent = escapeHtml(tickerContent)
+                            .replace(/```([\s\S]*?)```[\s]*/g, ' <code>$1</code> ') //全局匹配代码块
+                            .replace(/`([\s\S ]*?)`[\s]*/g, ' <code>$1</code> ') //全局匹配内联代码块
+                            .replace(/\!\[[\s\S]*?\]\(([\s\S]*?)\)/g, "$1") //全局匹配图片
+                            .replace(/\[[\s\S]*?\]\(([\s\S]*?)\)/g, "$1") //全局匹配连接
+                            .replace(/<video [^>]*src=['"](.+?[^'"]\.(mp4|webm|ogv)+)[^>]*>/g, "$1"); //全局匹配连接
+                        result += `<li class="item"><span class="datetime">${tickerTime}</span>：<a href="https://eallion.com/memos/">${newtickerContent}</a></li>`;
                     }
-                    var newtickerContent = escapeHtml(tickerContent)
-                        .replace(/```([\s\S]*?)```[\s]*/g, " <code>$1</code> ") //全局匹配代码块
-                        .replace(/`([\s\S ]*?)`[\s]*/g, " <code>$1</code> ") //全局匹配内联代码块
-                        .replace(/\!\[[\s\S]*?\]\(([\s\S]*?)\)/g, "$1") //全局匹配图片
-                        .replace(/\[[\s\S]*?\]\(([\s\S]*?)\)/g, "$1") //全局匹配连接
-                        .replace(/<video [^>]*src=['"](.+?[^'"]\.(mp4|webm|ogv)+)[^>]*>/g, "$1"); //全局匹配连接
-                    result += `<li class="item"><a href="https://eallion.com/memos/" target="_blank">${newtickerContent}</a></li>`;
-                }
-                var tickerDom = document.querySelector("#ticker");
-                var tickerBefore = `<div class="ticker-wrap"><ul class="ticker-list">`;
-                var tickerAfter = `</ul></div>`;
-                resultAll = tickerBefore + result + tickerAfter;
-                tickerDom.innerHTML = resultAll;
-            });
+                    var tickerDom = document.querySelector('#ticker');
+                    var tickerBefore = `<i class='fab fa-twitter'></i><div class="ticker-wrap"><ul class="ticker-list">`;
+                    var tickerAfter = `</ul></div>`;
+                    resultAll = tickerBefore + result + tickerAfter;
+                    tickerDom.innerHTML = resultAll;
 
-        setInterval(function () {
-            var tickerWrap = document.querySelector(".ticker-list");
-            var tickerItem = tickerWrap.querySelectorAll(".item");
-            for (i = 0; i < tickerItem.length; i++) {
-                setTimeout(function () {
-                    tickerWrap.appendChild(tickerItem[0]);
-                }, 2000);
-            }
-        }, 2000);
+                    // 相对时间： https://tokinx.github.io/lately/
+                    window.Lately && Lately.init({
+                        target: '.datetime'
+                    });
+                });
+
+            setInterval(function () {
+                var tickerWrap = document.querySelector(".ticker-list");
+                var tickerItem = tickerWrap.querySelectorAll(".item");
+                for (var i = 0; i < tickerItem.length; i++) {
+                    setTimeout(function () {
+                        tickerWrap.appendChild(tickerItem[0]);
+                    }, 2000);
+                }
+            }, 2000);
+        }
+
     </script>
 </body>
 
