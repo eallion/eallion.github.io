@@ -16,3 +16,5 @@
 - <https://qinchao.vercel.app>
 - <https://charleschin.vercel.app>
 - <https://eallion.onrender.com>
+- <https://eallion.gitlab.io>
+- <https://eallion.bitbucket.io>

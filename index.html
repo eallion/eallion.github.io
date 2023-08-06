@@ -10,9 +10,10 @@
     <meta name="keywords" content="" />
     <meta name="author" content="" />
     <link href="assets/style.min.css" rel="stylesheet" />
+    <link href="assets/dockbar.css" rel="stylesheet" />
 </head>
 
-<body class="main bg-gray-900">
+<body class="main bg-gray-900 text-gray-900">
     <div class="container">
         <!--Main Col-->
         <div id="profile" class="profile bg-white">
@@ -36,11 +37,39 @@
                     </svg>
                     ✈︎ ENH. Hubei Prov. China.
                 </p>
-                <div class="ticker"><div><svg class="social" role="img" viewBox="0 0 1024 1024"><path d="M184.32 891.667692c-12.603077 0-25.206154-2.363077-37.809231-7.876923-37.021538-14.966154-59.864615-49.624615-59.864615-89.009231v-275.692307c0-212.676923 173.292308-385.969231 385.969231-385.969231h78.76923c212.676923 0 385.969231 173.292308 385.969231 385.969231 0 169.353846-137.846154 307.2-307.2 307.2H289.083077l-37.021539 37.021538c-18.904615 18.116923-43.323077 28.356923-67.741538 28.356923zM472.615385 195.347692c-178.018462 0-322.953846 144.935385-322.953847 322.953846v275.692308c0 21.267692 15.753846 29.144615 20.48 31.507692 4.726154 2.363077 22.055385 7.876923 37.021539-7.08923l46.473846-46.473846c6.301538-6.301538 14.178462-9.452308 22.055385-9.452308h354.461538c134.695385 0 244.184615-109.489231 244.184616-244.184616 0-178.018462-144.935385-322.953846-322.953847-322.953846H472.615385z"></path><path d="M321.378462 512m-59.076924 0a59.076923 59.076923 0 1 0 118.153847 0 59.076923 59.076923 0 1 0-118.153847 0Z"></path><path d="M518.301538 512m-59.076923 0a59.076923 59.076923 0 1 0 118.153847 0 59.076923 59.076923 0 1 0-118.153847 0Z"></path><path d="M715.224615 512m-59.076923 0a59.076923 59.076923 0 1 0 118.153846 0 59.076923 59.076923 0 1 0-118.153846 0Z"></path></svg></div>:<div id="ticker"></div></div>
+                <div class="ticker">
+                    <div id="ticker"></div>
+                </div>
+
+                <div class="tags">
+                    <div class="tags-list">
+                        <span class="icon tags-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z"/><path fill="currentColor" d="M10.238 4.827a3 3 0 0 1 2.122.879l6.485 6.485a3 3 0 0 1 0 4.243l-4.243 4.242a3 3 0 0 1-4.242 0l-6.486-6.485a3 3 0 0 1-.878-2.121V7.327a2.5 2.5 0 0 1 2.5-2.5h4.742Zm-.586 4.536a1.5 1.5 0 1 0-2.12 2.12a1.5 1.5 0 0 0 2.12-2.12Zm2-7.364a3 3 0 0 1 1.977.743l.145.135l7.192 7.193a1 1 0 0 1-1.32 1.497l-.094-.083L12.36 4.29a1 1 0 0 0-.576-.284L11.652 4H7a1 1 0 0 1-.117-1.994L7 2h4.652Z"/></g></svg>
+                        </span>
+                        <span class="tags-item">He/Him</span>
+                        <span class="tags-item">UTC+0800</span>
+                        <span class="tags-item">COO</span>
+                        <span class="tags-item">WFH</span>
+                        <span class="tags-item">FOSS</span>
+                        <span class="tags-item">Libs</span>
+                        <span class="tags-item">Geeker</span>
+                        <span class="tags-item">Bloger</span>
+                        <span class="tags-item">ex-CSer</span>
+                        <span class="tags-item">LOLer</span>
+                        <span class="tags-item">Non-IT Indiv.</span>
+                        <span class="tags-item">E-Commerce</span>
+                    </div>
+                </div>
 
                 <div class="btn">
-                    <button>
+                    <button type="button">
                         <a href="mailto:eallions@gmail.com" target="_blank">Get In Touch</a>
+                    </button>
+                    <button type="button" class="js-change-theme" aria-label="themes">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10Zm0-1.5v-17a8.5 8.5 0 0 1 0 17Z" />
+                        </svg>
                     </button>
                 </div>
 
@@ -110,15 +139,123 @@
         <!--Img Col-->
         <div class="logo">
             <!-- Big profile image for side bar (desktop) -->
-            <img src="assets/avatar.png"  alt="avatar"/>
+            <img src="assets/avatar.png" alt="avatar" />
             <!-- Image from: https://unsplash.com/photos/3cuXSmCgheo -->
         </div>
 
-        <!-- Pin to top right corner -->
-        <div class="toggle">
-            <button class="js-change-theme">🌙</button>
+        <div class="dock">
+            <ul class="dock-container">
+                <li class="li-1">
+                    <div class="name">Blog</div>
+                    <a href="https://eallion.com/" target="_blank" rel="noopener noreferrer" aria-label="blog"><img
+                            class="ico" src="assets/images/finder.png" alt=""></a>
+                </li>
+
+                <li class="li-2">
+                    <div class="name">Mastodon</div>
+                    <a href="https://m.eallion.com/@eallion" target="_blank" rel="noopener noreferrer"
+                        aria-label="mastodon"><img class="ico" src="assets/images/mastodon.png" alt=""></a>
+                </li>
+
+                <li class="li-4">
+                    <div class="name">Twitter</div>
+                    <a href="https://twitter.com/eallion" target="_blank" rel="noopener noreferrer"
+                        aria-label="twitter"><img class="ico" src="assets/images/twitter.png" alt=""></a>
+                </li>
+
+                <li class="li-5">
+                    <div class="name">GitHub</div>
+                    <a href="https://github.com/eallion" target="_blank" rel="noopener noreferrer"
+                        aria-label="github"><img class="ico" src="assets/images/github.png" alt=""></a>
+                </li>
+
+                <li class="li-6">
+                    <div class="name">Telegram</div>
+                    <a href="https://t.me/eallion" target="_blank" rel="noopener noreferrer" aria-label="telegram"><img
+                            class="ico" src="assets/images/telegram.png" alt=""></a>
+                </li>
+
+                <li class="li-7">
+                    <div class="name">Steam</div>
+                    <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer"
+                        aria-label="steam"><img class="ico" src="assets/images/steam.png" alt=""></a>
+                </li>
+
+                <li class="li-8">
+                    <div class="name">Instagram</div>
+                    <a href="https://www.instagram.com/eallion" target="_blank" rel="noopener noreferrer"
+                        aria-label="instagram"><img class="ico" src="assets/images/instagram.png" alt=""></a>
+                </li>
+
+                <li class="li-9">
+                    <div class="name">Discord</div>
+                    <a href="https://discord.gg/Uaky4juDcv" target="_blank" rel="noopener noreferrer"
+                        aria-label="discord"><img class="ico" src="assets/images/discord.png" alt=""></a>
+                </li>
+
+                <li class="li-10">
+                    <div class="name">Slack</div>
+                    <a href="https://eallion.slack.com/" target="_blank" rel="noopener noreferrer"
+                        aria-label="slack"><img class="ico" src="assets/images/slack.png" alt=""></a>
+                </li>
+
+                <li class="li-11">
+                    <div class="name">Spotify</div>
+                    <a href="https://open.spotify.com/user/91qyot69mzbkp5inpdgrp3jej" target="_blank"
+                        rel="noopener noreferrer" aria-label="spotify"><img class="ico" src="assets/images/spotify.png"
+                            alt=""></a>
+                </li>
+
+                <li class="li-12">
+                    <div class="name">Keybase</div>
+                    <a href="https://keybase.io/eallion" target="_blank" rel="noopener noreferrer"
+                        aria-label="keybase"><img class="ico" src="assets/images/keybase.png" alt=""></a>
+                </li>
+
+                <li class="li-13">
+                    <div class="name">Stackoverflow</div>
+                    <a href="https://stackoverflow.com/users/11409594" target="_blank" rel="noopener noreferrer"
+                        aria-label="stackoverflow"><img class="ico" src="assets/images/stackoverflow.png" alt=""></a>
+                </li>
+                <li class="li-theme">
+                    <div class="name">Theme</div>
+                    <img class="ico js-change-theme" src="assets/images/theme.png" alt="">
+                </li>
+            </ul>
         </div>
     </div>
+
+    <script>
+        let icons = document.querySelectorAll(".ico");
+        let length = icons.length;
+
+        icons.forEach((item, index) => {
+            item.addEventListener("mouseover", (e) => {
+                focus(e.target, index);
+            });
+            item.addEventListener("mouseleave", (e) => {
+                icons.forEach((item) => {
+                    item.style.transform = "scale(1)  translateY(0px)";
+                });
+            });
+        });
+
+        const focus = (elem, index) => {
+            let previous2 = index - 2;
+            let previous1 = index - 1;
+            let next1 = index + 1;
+            let next2 = index + 2;
+
+            icons.forEach(icon => icon.style.transform = "");
+
+            elem.style.transform = "scale(1.5) translateY(-10px)";
+
+            if (previous2 >= 0) icons[previous2].style.transform = "scale(1.1)";
+            if (previous1 >= 0) icons[previous1].style.transform = "scale(1.2) translateY(-6px)";
+            if (next1 < icons.length) icons[next1].style.transform = "scale(1.2) translateY(-6px)";
+            if (next2 < icons.length) icons[next2].style.transform = "scale(1.1)";
+        };
+    </script>
 
     <script src="assets/popper.min.js"></script>
     <script src="assets/tippy.umd.min.js"></script>
@@ -129,39 +266,43 @@
         });
 
         //Toggle mode
-        const toggle = document.querySelector(".js-change-theme");
+        const toggles = document.querySelectorAll(".js-change-theme");
         const body = document.querySelector("body");
         const profile = document.getElementById("profile");
 
-        toggle.addEventListener("click", () => {
-            if (body.classList.contains("text-gray-900")) {
-                toggle.innerHTML = "☀️";
-                body.classList.remove("text-gray-900");
-                body.classList.add("text-gray-100");
-                profile.classList.remove("bg-white");
-                profile.classList.add("bg-gray-900");
-            } else {
-                toggle.innerHTML = "🌙";
-                body.classList.remove("text-gray-100");
-                body.classList.add("text-gray-900");
-                profile.classList.remove("bg-gray-900");
-                profile.classList.add("bg-white");
-            }
+        toggles.forEach(toggle => {
+            toggle.addEventListener("click", () => {
+                if (body.classList.contains("text-gray-900")) {
+                    // toggle.innerHTML = "☀️";
+                    body.classList.remove("text-gray-900");
+                    body.classList.add("text-gray-100");
+                    profile.classList.remove("bg-white");
+                    profile.classList.add("bg-gray-900");
+                } else {
+                    // toggle.innerHTML = "🌙";
+                    body.classList.remove("text-gray-100");
+                    body.classList.add("text-gray-900");
+                    profile.classList.remove("bg-gray-900");
+                    profile.classList.add("bg-white");
+                }
+            });
         });
     </script>
 
     <script>
-        // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
+        // 远程 JSON API 地址
+        let jsonUrl = "https://api.eallion.com/gotosocial/api/v1/accounts/01RVAVVGAPXR989VKK1BQV6BFS/statuses?limit=10";
 
+        // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
         (() => {
             window.Lately = new function () {
                 this.lang = {
-                    second: "秒",
-                    minute: "分钟",
-                    hour: "小时",
-                    day: "天",
-                    month: "个月",
-                    year: "年",
+                    second: " 秒",
+                    minute: " 分钟",
+                    hour: " 小时",
+                    day: " 天",
+                    month: " 个月",
+                    year: " 年",
                     ago: "前",
                     error: "NaN"
                 };
@@ -197,40 +338,32 @@
                 }
             }
         })();
-        let jsonUrl = "https://api.eallion.com/memos/memos.json" + "?t=" + Date.parse(new Date());
 
+        // 处理 Json 数据
         if (document.querySelector('#ticker')) {
             fetch(jsonUrl)
                 .then(res => res.json())
-                .then(resdata => {
+                .then(res => {
                     var result = '';
-                    var data = resdata;
+                    var data = res;
                     for (var i = 0; i < data.length; i++) {
-                        var tickerTime = new Date(data[i].createdTs * 1000).toLocaleString();
-                        var tickerContent = data[i].content;
-                        const escapeHtml = (unsafe) => {
-                            return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
-                        };
-                        var newtickerContent = escapeHtml(tickerContent)
-                            .replace(/```([\s\S]*?)```[\s]*/g, ' <code>$1</code> ') //全局匹配代码块
-                            .replace(/`([\s\S ]*?)`[\s]*/g, ' <code>$1</code> ') //全局匹配内联代码块
-                            .replace(/\!\[[\s\S]*?\]\(([\s\S]*?)\)/g, "$1") //全局匹配图片
-                            .replace(/\[[\s\S]*?\]\(([\s\S]*?)\)/g, "$1") //全局匹配连接
-                            .replace(/<video [^>]*src=['"](.+?[^'"]\.(mp4|webm|ogv)+)[^>]*>/g, "$1"); //全局匹配连接
-                        result += `<li class="item"><span class="datetime">${tickerTime}</span>：<a href="https://eallion.com/memos/">${newtickerContent}</a></li>`;
+                        var tickerTime = new Date(data[i].created_at).toLocaleString();
+                        var tickerContent = getSimpleText(data[i].content)
+                        result += `<li class="item"><span class="datetime">${tickerTime}</span>：<a href="https://eallion.com/toot/" target="_blank">${tickerContent}</a></li>`;
                     }
                     var tickerDom = document.querySelector('#ticker');
-                    var tickerBefore = `<i class='fab fa-twitter'></i><div class="ticker-wrap"><ul class="ticker-list">`;
+                    var tickerBefore = `<div class="ticker-wrap"><ul class="ticker-list">`;
                     var tickerAfter = `</ul></div>`;
                     resultAll = tickerBefore + result + tickerAfter;
                     tickerDom.innerHTML = resultAll;
 
-                    // 相对时间： https://tokinx.github.io/lately/
+                    // 相对时间插件
                     window.Lately && Lately.init({
                         target: '.datetime'
                     });
                 });
 
+            // 滚动效果
             setInterval(function () {
                 var tickerWrap = document.querySelector(".ticker-list");
                 var tickerItem = tickerWrap.querySelectorAll(".item");
@@ -242,6 +375,12 @@
             }, 2000);
         }
 
+        // 提取 HTML 代码中的纯文本内容
+        function getSimpleText(html) {
+            var htmlTags = new RegExp("<.+?>", "g");
+            var simpleText = html.replace(htmlTags, '');
+            return simpleText;
+        }
     </script>
 </body>
 
