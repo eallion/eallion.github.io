@@ -58,6 +58,13 @@ body {
         Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
+html, body {
+    min-height: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
 /*
 Grouping content
 ================
@@ -627,8 +634,15 @@ video {
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0.05em;
     line-height: 1.5;
-    background-image: url("https://api.eallion.com/bing");
-    background-size: cover;
+}
+
+.background-image {
+    width: 110%;
+    height: 110%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background: url('https://api.eallion.com/bing?region=zh-CN&type=image') no-repeat left center / cover;
 }
 
 .container {
@@ -658,6 +672,7 @@ video {
     border-radius: 0.5rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     opacity: 0.75;
+    z-index: 99;
 }
 
 @media (max-width: 1024px) {
@@ -725,6 +740,11 @@ video {
     .title {
         padding-top: 0;
     }
+}
+
+.dynamic-shadow {
+    position: relative;
+    text-shadow: 4px 4px 0 pink;
 }
 
 .hr {
@@ -856,6 +876,7 @@ video {
 
 .logo {
     width: 100%;
+    z-index: 99;
 }
 
 @media (min-width: 1024px) {
@@ -942,4 +963,17 @@ video {
     opacity: 1;
     background:  rgba(4, 120, 87, 0.55);
     color: #ffffff;
+}
+
+.bing-daily {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #111827 !important;
+    border-radius: 0.25rem;
+    padding: 0.125rem 0.25rem;
 }
