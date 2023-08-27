@@ -9,12 +9,9 @@
 ### Live demo
 
 - <https://charleschin.com>  
-- <https://秦超.com>
 - <https://about.eallion.com>
 - <https://eallion.vercel.app>
 - <https://eallion.netlify.app/>
-- <https://qinchao.vercel.app>
-- <https://charleschin.vercel.app>
 - <https://eallion.onrender.com>
 - <https://eallion.gitlab.io>
 - <https://eallion.bitbucket.io>
