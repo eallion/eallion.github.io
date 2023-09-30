@@ -15,3 +15,13 @@
 - <https://eallion.onrender.com>
 - <https://eallion.gitlab.io>
 - <https://eallion.bitbucket.io>
+
+### Repo backup
+
+```bash
+git remote -v
+origin  https://github.com/eallion/eallion.github.io (fetch)
+origin  https://github.com/eallion/eallion.github.io.git (push)
+origin  https://gitlab.com/eallion/eallion.gitlab.io.git (push)
+origin  https://eallion@bitbucket.org/eallion/eallion.bitbucket.io.git (push)
+```
