@@ -655,6 +655,7 @@ video {
     align-items: center;
     max-width: 56rem;
     height: auto;
+    width: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -924,6 +925,9 @@ video {
 
 .bg-gray-900 {
     background-color: #111827;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .tags {
