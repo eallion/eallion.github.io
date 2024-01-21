@@ -7,6 +7,10 @@ Document
 ========
 */
 
+:root {
+    --glitch-font-size: 36px;
+}
+
 /**
 Use a better box model (opinionated).
 */
@@ -980,4 +984,120 @@ video {
     color: #111827 !important;
     border-radius: 0.25rem;
     padding: 0.125rem 0.25rem;
+}
+
+.glitch {
+    display: block;
+    position: relative;
+    font-weight: 700;
+    font-size: var(--glitch-font-size);
+    text-shadow: rgba(0,0,0,.2) 4px 4px 8px
+}
+
+.glitch-light {
+    color: #fff;
+}
+
+.glitch-dark {
+    color: #111827;
+}
+
+.glitch:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    clip: rect(0,0,0,0);
+    left: -1px;
+    text-shadow: 1px 0 #ff3f1a
+}
+
+.glitch:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    clip: rect(0,0,0,0);
+    left: 1px;
+    text-shadow: -1px 0 #00a7e0
+}
+
+.glitch:hover:before {
+    text-shadow: 4px 0 #ff3f1a;
+    animation: glitch-loop-1 .8s infinite ease-in-out alternate-reverse
+}
+
+.glitch:hover:after {
+    text-shadow: -4px 0 #00a7e0;
+    animation: glitch-loop-2 .8s infinite ease-in-out alternate-reverse
+}
+
+@media (max-width: 720px) {
+    .glitch {
+        font-size:32px
+    }
+}
+
+@keyframes glitch-loop-1 {
+    0% {
+        /* clip: rect(36px,9999px,9px,0) */
+        clip: rect(calc(0.45 * var(--glitch-font-size)), 9999px, calc(0.11 * var(--glitch-font-size)), 0);
+    }
+
+    25% {
+        /* clip: rect(25px,9999px,99px,0) */
+        clip: rect(calc(0.31 * var(--glitch-font-size)), 9999px, calc(1.24 * var(--glitch-font-size)), 0);
+    }
+
+    50% {
+        /* clip: rect(50px,9999px,102px,0) */
+        clip: rect(calc(0.62 * var(--glitch-font-size)), 9999px, calc(1.28 * var(--glitch-font-size)), 0);
+    }
+
+    75% {
+        /* clip: rect(30px,9999px,92px,0) */
+        clip: rect(calc(0.38 * var(--glitch-font-size)), 9999px, calc(1.15 * var(--glitch-font-size)), 0);
+    }
+
+    to {
+        /* clip: rect(91px,9999px,98px,0) */
+        clip: rect(calc(1.14 * var(--glitch-font-size)), 9999px, calc(1.23 * var(--glitch-font-size)), 0);
+    }
+}
+
+@keyframes glitch-loop-2 {
+    0% {
+        top: -1px;
+        left: 1px;
+        /* clip: rect(65px,9999px,119px,0) */
+        clip: rect(calc(0.81 * var(--glitch-font-size)), 9999px, calc(1.49 * var(--glitch-font-size)), 0);
+    }
+
+    25% {
+        top: -4px;
+        left: 2px;
+        /* clip: rect(79px,9999px,19px,0) */
+        clip: rect(calc(0.99 * var(--glitch-font-size)), 9999px, calc(0.24 * var(--glitch-font-size)), 0);
+    }
+
+    50% {
+        top: -3px;
+        left: 2px;
+        /* clip: rect(68px,9999px,11px,0) */
+        clip: rect(calc(0.85 * var(--glitch-font-size)), 9999px, calc(0.14 * var(--glitch-font-size)), 0);
+    }
+
+    75% {
+        top: 0;
+        left: -4px;
+        /* clip: rect(95px,9999px,53px,0) */
+        clip: rect(calc(1.19 * var(--glitch-font-size)), 9999px, calc(0.66 * var(--glitch-font-size)), 0);
+    }
+
+    to {
+        top: -1px;
+        left: -1px;
+        /* clip: rect(31px,9999px,149px,0) */
+        clip: rect(calc(0.39 * var(--glitch-font-size)), 9999px, calc(1.86 * var(--glitch-font-size)), 0);
+    }
 }

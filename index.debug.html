@@ -20,16 +20,16 @@
     <link href="assets/dockbar.css" rel="stylesheet" />
 </head>
 
-<body class="main bg-gray-900 text-gray-900">
+<body class="main bg-gray-900 text-gray-100">
     <div class="background-image"></div>
     <div class="container">
         <!--Main Col-->
-        <div id="profile" class="profile bg-white">
+        <div id="profile" class="profile bg-gray-900">
             <div class="content">
                 <!-- Image for mobile view-->
                 <div class="avatar"></div>
 
-                <h1 class="title dynamic-shadow">Charles Chin</h1>
+                <div id="glitch" class="glitch glitch-light" data-text="Charles Chin">Charles Chin</div>
                 <div class="hr"></div>
                 <p class="position">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -161,7 +161,7 @@
 
                 <li class="li-2">
                     <div class="name">Mastodon</div>
-                    <a href="https://m.eallion.com/@eallion" target="_blank" rel="noopener noreferrer"
+                    <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer"
                         aria-label="mastodon"><img class="ico" src="assets/images/mastodon.png" alt=""></a>
                 </li>
 
@@ -318,21 +318,26 @@
         const toggles = document.querySelectorAll(".js-change-theme");
         const body = document.querySelector("body");
         const profile = document.getElementById("profile");
+        const glitch = document.getElementById("glitch");
 
         toggles.forEach(toggle => {
             toggle.addEventListener("click", () => {
                 if (body.classList.contains("text-gray-900")) {
-                    // toggle.innerHTML = "☀️";
+                    // toggle.innerHTML = "🌙";
                     body.classList.remove("text-gray-900");
                     body.classList.add("text-gray-100");
                     profile.classList.remove("bg-white");
                     profile.classList.add("bg-gray-900");
+                    glitch.classList.remove("glitch-dark");
+                    glitch.classList.add("glitch-light");
                 } else {
-                    // toggle.innerHTML = "🌙";
+                    // toggle.innerHTML = "☀️";
                     body.classList.remove("text-gray-100");
                     body.classList.add("text-gray-900");
                     profile.classList.remove("bg-gray-900");
                     profile.classList.add("bg-white");
+                    glitch.classList.remove("glitch-light");
+                    glitch.classList.add("glitch-dark");
                 }
             });
         });
