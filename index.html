@@ -249,6 +249,17 @@
         container.addEventListener('mousemove', handleMove);
         logo.addEventListener('mousemove', handleMove);
         dock.addEventListener('mousemove', handleMove);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerBig = document.querySelector('.header-big');
+            if (headerBig) {
+              headerBig.addEventListener('mousemove', (event) => {
+                const mouseX = event.clientX / headerBig.clientWidth - 0.5;
+                const mouseY = event.clientY / headerBig.clientHeight - 0.5;
+                headerBig.style.backgroundPosition = `${mouseX*50}px ${mouseY*50}px`;
+              });
+            }
+          });
     </script>
 
     <script  type="module">
@@ -345,7 +356,7 @@
 
     <script>
         // 远程 JSON API 地址
-        let jsonUrl = "https://mastodon.api.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true";
+        let jsonUrl = "https://www.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true";
 
         // // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
         // (() => {
@@ -402,39 +413,56 @@
                     var data = res;
                     for (var i = 0; i < data.length; i++) {
                         var tickerTime = new Date(data[i].created_at).toLocaleString();
-                        var tickerContent = getSimpleText(data[i].content)
-                        // result += `<li class="item"><span class="datetime">${tickerTime}</span>：<a href="https://eallion.com/toot/" target="_blank">${tickerContent}</a></li>`;
-                        result += `<li class="item"><a href="https://eallion.com/toot/" target="_blank">${tickerContent}</a></li>`;
+                        var tickerContent = extractTextFromHtml(data[i].content)
+                        var tickerUrl = data[i].url;
+                        const replacements = {
+                            '\\s*:star_empty:\\s*': '🌑',
+                            '\\s*:star_half:\\s*': '🌗',
+                            '\\s*:star_solid:\\s*': '🌕'
+                        };
+                        tickerContent = replaceMultiple(tickerContent, replacements);
+                        // result += `<li class="ticker-item"><span class="datetime">${tickerTime}</span>：<a href="https://www.eallion.com/mastodon/" target="_blank">${tickerContent}</a></li>`;
+                        result += `<li class="ticker-item"><a href="${tickerUrl}" target="_blank">${tickerContent}</a></li>`;
                     }
                     var tickerDom = document.querySelector('#ticker');
                     var tickerBefore = `<div class="ticker-wrap"><ul class="ticker-list">`;
                     var tickerAfter = `</ul></div>`;
                     resultAll = tickerBefore + result + tickerAfter;
                     tickerDom.innerHTML = resultAll;
-
-                    // // 相对时间插件
-                    // window.Lately && Lately.init({
-                    //     target: '.datetime'
-                    // });
+    
+                    // 相对时间插件
+                    window.Lately && Lately.init({
+                        target: '.datetime'
+                    });
                 });
-
+    
             // 滚动效果
             setInterval(function () {
                 var tickerWrap = document.querySelector(".ticker-list");
-                var tickerItem = tickerWrap.querySelectorAll(".item");
+                var tickerItem = tickerWrap.querySelectorAll(".ticker-item");
                 for (var i = 0; i < tickerItem.length; i++) {
                     setTimeout(function () {
                         tickerWrap.appendChild(tickerItem[0]);
-                    }, 2000);
+                    }, 1500);
                 }
-            }, 2000);
+            }, 1500);
         }
-
+    
+        // 替换字符串
+        function replaceMultiple(str, replacements) {
+            let result = str;
+            for (const pattern in replacements) {
+                const regex = new RegExp(pattern, 'g');
+                result = result.replace(regex, replacements[pattern]);
+            }
+            return result;
+        }
+    
         // 提取 HTML 代码中的纯文本内容
-        function getSimpleText(html) {
-            var htmlTags = new RegExp("<.+?>", "g");
-            var simpleText = html.replace(htmlTags, '');
-            return simpleText;
+        function extractTextFromHtml(html) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            return doc.body.textContent || '';
         }
     </script>
 </body>
