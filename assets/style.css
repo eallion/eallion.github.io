@@ -8,7 +8,7 @@ Document
 */
 
 :root {
-    --glitch-font-size: 36px;
+    --glitch-font-size: 48px;
 }
 
 /**
@@ -67,6 +67,14 @@ html, body {
     height: 100%;
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 1023px) {
+    html, body {
+        overflow: auto;
+        overflow-x: hidden;
+        height: auto;
+    }
 }
 
 /*
@@ -646,7 +654,7 @@ video {
     left: 0;
     top: 0;
     position: absolute;
-    background: url('https://api.eallion.com/bing?region=zh-CN&type=image') no-repeat left center / cover;
+    background: url('https://api.eallion.com/bing?type=image') no-repeat left center / cover;
 }
 
 .container {
@@ -771,8 +779,8 @@ video {
 
 .position {
     display: flex;
-    padding-top: 1rem;
-    font-size: 1rem;
+    margin-top: 1rem;
+    font-size: 1.25rem;
     line-height: 1.5rem;
     font-weight: 700;
     justify-content: flex-start;
@@ -787,21 +795,66 @@ video {
 
 .location {
     display: flex;
-    padding-top: 0.5rem;
-    color: #4b5563;
+    margin-top: 0.5rem;
+    color: #c5c6c7;
     font-size: 0.75rem;
     line-height: 1rem;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 2rem;
 }
 
 @media (min-width: 1024px) {
     .location {
         font-size: 0.875rem;
         line-height: 1.25rem;
-        justify-content: flex-start;
     }
+}
+
+.biography {
+    display: flex;
+    margin-top: 0.5rem;
+    color: #c5c6c7;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .biography {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+}
+
+.socially {
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: #c5c6c7;
+    font-size: 1rem;
+    line-height: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .socially {
+        font-size: 1rem;
+        line-height: 1.25rem;
+    }
+}
+
+.socially svg {
+    padding: 0 0.5rem;
+    height: 1rem;
+    fill: currentColor;
+}
+
+.bg-white .location,
+.bg-white .biography,
+.bg-white .socially {
+    color: #4d4e4f;
 }
 
 .icon {
@@ -870,7 +923,7 @@ video {
     }
 }
 .social {
-    color: #4b5563;
+    color: #c5c6c7;
     height: 1.5rem;
     fill: currentColor;
 }
@@ -931,7 +984,7 @@ video {
     background-color: #111827;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .tags {
